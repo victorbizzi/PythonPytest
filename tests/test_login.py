@@ -1,7 +1,7 @@
 import pytest
 from pages.home_page import HomePage
 from pages.login_page import LoginPage
-
+#To run: python -v -m wip pytest tests/
 
 @pytest.mark.usefixtures('setup_teardown')
 @pytest.mark.login
