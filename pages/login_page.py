@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 import conftest
 from pages.base_page import BasePage
+from utilities.globalVars import globalVars
 
 
 class LoginPage(BasePage):
@@ -16,6 +17,11 @@ class LoginPage(BasePage):
     def performLogin(self, user, password):
         self.sendkeysAbstract(self.username_field, user)
         self.sendkeysAbstract(self.password_field,password)
+        self.clickAbstract(self.login_btn)
+
+    def performValidLogin(self):
+        self.sendkeysAbstract(self.username_field, globalVars.user)
+        self.sendkeysAbstract(self.password_field, globalVars.password)
         self.clickAbstract(self.login_btn)
 
     def validateErrorLoginMsg(self):

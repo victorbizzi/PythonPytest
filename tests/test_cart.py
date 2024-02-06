@@ -5,25 +5,25 @@ from pages.checkoutYourInfo_page import YourInfoPage
 from pages.home_page import HomePage
 from pages.login_page import LoginPage
 from pages.ordercomplete_page import OrderCompleted
+from utilities.globalVars import globalVars
 
 
 @pytest.mark.usefixtures('setup_teardown')
-@pytest.mark.cart
 class TestCart:
     def test_AddProductToCart(self):
         login_page = LoginPage()
         home_page = HomePage()
-        login_page.performLogin("standard_user", "secret_sauce")
-        home_page.addToCart("Sauce Labs Backpack")
+        login_page.performLogin(globalVars.user, globalVars.password)
+        home_page.addToCart(globalVars.product_sauce_labs_backpack)
 
     def test_ValidateProductsInCart(self):
         login_page = LoginPage()
         home_page = HomePage()
         cart_page = CartPage()
 
-        product1 = "Sauce Labs Backpack"
-        product2 = "Sauce Labs Bolt T-Shirt"
-        login_page.performLogin("standard_user", "secret_sauce")
+        product1 = globalVars.product_sauce_labs_backpack
+        product2 = globalVars.product_sauce_labs_bolt_tshirt
+        login_page.performValidLogin()
         home_page.addToCart(product1)
         home_page.goToCart()
         cart_page.validateProductCart(product1)
@@ -33,7 +33,6 @@ class TestCart:
         cart_page.validateProductCart(product1)
         cart_page.validateProductCart(product2)
 
-    @pytest.mark.wip
     def test_FlowAddProductsToCartAndFinishCheckout(self):
         login_page = LoginPage()
         home_page = HomePage()
@@ -42,15 +41,15 @@ class TestCart:
         checkout_overview_page = CheckoutOverviewPage()
         order_completed_page = OrderCompleted()
 
-        expected_checkout_label = "Checkout: Your Information"
-        product1 = "Sauce Labs Backpack"
-        product2 = "Sauce Labs Bolt T-Shirt"
-        login_page.performLogin("standard_user", "secret_sauce")
-        checkout_fn = "Victor"
-        checkout_ls = "Melo"
-        checkout_pc = "4000"
-        checkout_overview_page_title = "Checkout: Overview"
-        completed_message = "Thank you for your order!"
+        expected_checkout_label = globalVars.checkout_label
+        product1 = globalVars.product_sauce_labs_backpack
+        product2 = globalVars.product_sauce_labs_bolt_tshirt
+        login_page.performValidLogin()
+        checkout_fn = globalVars.first_name
+        checkout_ls = globalVars.last_name
+        checkout_pc = globalVars.postal_code
+        checkout_overview_page_title = globalVars.checkoutOverview_title
+        completed_message = globalVars.completed_message
 
         home_page.addToCart(product1)
         home_page.goToCart()
