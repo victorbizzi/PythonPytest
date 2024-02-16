@@ -2,7 +2,7 @@ import pytest
 from pages.home_page import HomePage
 from pages.login_page import LoginPage
 from utilities.globalVars import globalVars
-#To run: python -v pytest tests/
+#To run: python -v pytest wwwww/
 #To run: pytest
 
 
