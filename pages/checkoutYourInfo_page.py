@@ -13,15 +13,15 @@ class YourInfoPage(BasePage):
         self.continueBtn = (By.ID, "continue")
 
 
-    def validateCorrectYourInfoPage(self, text):
+    def validate_correct_your_info_page(self, text):
         textfound = self.validateElementText(self.titleYI)
         assert textfound == text, f"Returned message was: '{textfound}', but the expected is: '{text}'."
 
 
-    def fillFields(self, firstname, lastname, zipcode):
+    def fill_fields(self, firstname, lastname, zipcode):
         self.sendkeysAbstract(self.firstnameTxt, firstname)
         self.sendkeysAbstract(self.lastnameTxt, lastname)
         self.sendkeysAbstract(self.postalcodeTxt, zipcode)
 
-    def goToCheckoutOvervieww(self):
+    def go_to_checkout_overview(self):
         self.clickAbstract(self.continueBtn)
