@@ -20,7 +20,6 @@ class TestCart:
         login_page = LoginPage()
         home_page = HomePage()
         cart_page = CartPage()
-
         product1 = globalVars.product_sauce_labs_backpack
         product2 = globalVars.product_sauce_labs_bolt_tshirt
         login_page.perform_valid_login()
@@ -40,7 +39,6 @@ class TestCart:
         checkout_your_info_page = YourInfoPage()
         checkout_overview_page = CheckoutOverviewPage()
         order_completed_page = OrderCompleted()
-
         expected_checkout_label = globalVars.checkout_label
         product1 = globalVars.product_sauce_labs_backpack
         product2 = globalVars.product_sauce_labs_bolt_tshirt
@@ -50,7 +48,6 @@ class TestCart:
         checkout_pc = globalVars.postal_code
         checkout_overview_page_title = globalVars.checkout_overview_title
         completed_message = globalVars.completed_message
-
         home_page.add_to_cart(product1)
         home_page.go_to_cart()
         cart_page.validate_product_cart(product1)
