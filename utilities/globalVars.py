@@ -1,7 +1,7 @@
 
 
 class globalVars:
-    baseUrl = "https://www.saucedemo.com/"
+    base_url = "https://www.saucedemo.com/"
     user = "standard_user"
     password = "secret_sauce"
     locked_out_user = "locked_out_user"
@@ -14,7 +14,7 @@ class globalVars:
     first_name = "Victor"
     last_name = "Melo"
     postal_code = "4000"
-    checkoutOverview_title = "Checkout: Overview"
+    checkout_overview_title = "Checkout: Overview"
     completed_message = "Thank you for your order!"
 
     #products

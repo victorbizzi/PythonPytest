@@ -13,7 +13,7 @@ def setup_teardown():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))  # service=service_obj)
     driver.implicitly_wait(5)
     driver.maximize_window()
-    driver.get(globalVars.baseUrl)
+    driver.get(globalVars.base_url)
     # Run
     yield
     # Teardown

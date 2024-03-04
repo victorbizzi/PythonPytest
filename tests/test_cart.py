@@ -13,8 +13,8 @@ class TestCart:
     def test_add_product_to_cart(self):
         login_page = LoginPage()
         home_page = HomePage()
-        login_page.performLogin(globalVars.user, globalVars.password)
-        home_page.addToCart(globalVars.product_sauce_labs_backpack)
+        login_page.perform_login(globalVars.user, globalVars.password)
+        home_page.add_to_cart(globalVars.product_sauce_labs_backpack)
 
     def test_validate_products_in_cart(self):
         login_page = LoginPage()
@@ -23,13 +23,13 @@ class TestCart:
 
         product1 = globalVars.product_sauce_labs_backpack
         product2 = globalVars.product_sauce_labs_bolt_tshirt
-        login_page.performValidLogin()
-        home_page.addToCart(product1)
-        home_page.goToCart()
+        login_page.perform_valid_login()
+        home_page.add_to_cart(product1)
+        home_page.go_to_cart()
         cart_page.validate_product_cart(product1)
         cart_page.click_continue_shopping()
-        home_page.addToCart(product2)
-        home_page.goToCart()
+        home_page.add_to_cart(product2)
+        home_page.go_to_cart()
         cart_page.validate_product_cart(product1)
         cart_page.validate_product_cart(product2)
 
@@ -44,19 +44,19 @@ class TestCart:
         expected_checkout_label = globalVars.checkout_label
         product1 = globalVars.product_sauce_labs_backpack
         product2 = globalVars.product_sauce_labs_bolt_tshirt
-        login_page.performValidLogin()
+        login_page.perform_valid_login()
         checkout_fn = globalVars.first_name
         checkout_ls = globalVars.last_name
         checkout_pc = globalVars.postal_code
-        checkout_overview_page_title = globalVars.checkoutOverview_title
+        checkout_overview_page_title = globalVars.checkout_overview_title
         completed_message = globalVars.completed_message
 
-        home_page.addToCart(product1)
-        home_page.goToCart()
+        home_page.add_to_cart(product1)
+        home_page.go_to_cart()
         cart_page.validate_product_cart(product1)
         cart_page.click_continue_shopping()
-        home_page.addToCart(product2)
-        home_page.goToCart()
+        home_page.add_to_cart(product2)
+        home_page.go_to_cart()
         cart_page.validate_product_cart(product1)
         cart_page.validate_product_cart(product2)
         cart_page.click_in_checkout()
@@ -67,4 +67,4 @@ class TestCart:
         checkout_overview_page.validate_product_cart_checkout(product1)
         checkout_overview_page.validate_product_cart_checkout(product2)
         checkout_overview_page.click_finish_btn()
-        order_completed_page.validateCompletedMessage(completed_message)
+        order_completed_page.validate_completed_message(completed_message)

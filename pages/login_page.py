@@ -10,27 +10,27 @@ class LoginPage(BasePage):
         self.username_field = (By.ID,  "user-name")
         self.password_field = (By.ID,  "password")
         self.login_btn = (By.ID,  "login-button")
-        self.errorLoginMessage = (By.XPATH,"//h3")
-        self.xIconUser = (By.CSS_SELECTOR,".form_group:nth-child(1) path")
-        self.xIconPassword = (By.CSS_SELECTOR, ".form_group:nth-child(2) path")
+        self.error_login_message = (By.XPATH, "//h3")
+        self.x_icon_user = (By.CSS_SELECTOR, ".form_group:nth-child(1) path")
+        self.x_icon_password = (By.CSS_SELECTOR, ".form_group:nth-child(2) path")
 
-    def performLogin(self, user, password):
-        self.sendkeysAbstract(self.username_field, user)
-        self.sendkeysAbstract(self.password_field,password)
-        self.clickAbstract(self.login_btn)
+    def perform_login(self, user, password):
+        self.sendkeys_abstract(self.username_field, user)
+        self.sendkeys_abstract(self.password_field, password)
+        self.click_abstract(self.login_btn)
 
-    def performValidLogin(self):
-        self.sendkeysAbstract(self.username_field, globalVars.user)
-        self.sendkeysAbstract(self.password_field, globalVars.password)
-        self.clickAbstract(self.login_btn)
+    def perform_valid_login(self):
+        self.sendkeys_abstract(self.username_field, globalVars.user)
+        self.sendkeys_abstract(self.password_field, globalVars.password)
+        self.click_abstract(self.login_btn)
 
-    def validateErrorLoginMsg(self):
-        self.validateIfElementExists(self.errorLoginMessage)
+    def validate_error_login_msg(self):
+        self.validate_if_element_exists(self.error_login_message)
 
-    def validateErrorLogin(self, expected_message):
-        text_found =  self.validateElementText(self.errorLoginMessage)
+    def validate_error_login(self, expected_message):
+        text_found =  self.validate_element_text(self.error_login_message)
         assert text_found == expected_message, f"Returned message was: '{text_found}', but the expected is: '{expected_message}'."
 
-    def waitElementsLoad(self):
-        self.waitElementAppears(self.username_field)
-        self.waitElementAppears(self.password_field)
+    def wait_elements_load(self):
+        self.wait_element_appears(self.username_field)
+        self.wait_element_appears(self.password_field)

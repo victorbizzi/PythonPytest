@@ -11,12 +11,12 @@ class CheckoutOverviewPage(BasePage):
         self.finish_btn = (By.ID, "finish")
 
     def validate_checkout_overview_page(self, text_title):
-        text = self.validateElementText(self.page_title)
+        text = self.validate_element_text(self.page_title)
         assert text == text_title, f"Returned message was: '{text}', but the expected is: '{text_title}'."
 
     def validate_product_cart_checkout(self, item_name):
         item = (self.item_name_checkout[0], self.item_name_checkout[1].format(item_name))
-        self.validateIfElementExists(item)
+        self.validate_if_element_exists(item)
 
     def click_finish_btn(self):
-        self.clickAbstract(self.finish_btn)
+        self.click_abstract(self.finish_btn)
