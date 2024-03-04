@@ -8,7 +8,6 @@ class OrderCompleted(BasePage):
         self.driver = conftest.driver
         self.order_checkout_completed = (By.XPATH, "//h2[contains(text(),'Thank you for your order!')]")
 
-
     def validateCompletedMessage(self, text_message):
         text = self.validateElementText(self.order_checkout_completed)
         assert text == text_message

@@ -14,4 +14,7 @@
       </list>
     </option>
   </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="59587d84-ef01-45db-8847-4a142ef15091" />
+  </component>
 </module>

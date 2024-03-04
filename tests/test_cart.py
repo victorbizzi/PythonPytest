@@ -10,13 +10,13 @@ from utilities.globalVars import globalVars
 
 @pytest.mark.usefixtures('setup_teardown')
 class TestCart:
-    def test_AddProductToCart(self):
+    def test_add_product_to_cart(self):
         login_page = LoginPage()
         home_page = HomePage()
         login_page.performLogin(globalVars.user, globalVars.password)
         home_page.addToCart(globalVars.product_sauce_labs_backpack)
 
-    def test_ValidateProductsInCart(self):
+    def test_validate_products_in_cart(self):
         login_page = LoginPage()
         home_page = HomePage()
         cart_page = CartPage()
@@ -33,7 +33,7 @@ class TestCart:
         cart_page.validateProductCart(product1)
         cart_page.validateProductCart(product2)
 
-    def test_FlowAddProductsToCartAndFinishCheckout(self):
+    def test_flow_add_products_to_cart_and_finish_checkout(self):
         login_page = LoginPage()
         home_page = HomePage()
         cart_page = CartPage()
