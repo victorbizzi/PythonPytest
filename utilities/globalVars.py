@@ -1,4 +1,6 @@
-
+# pip install webdriver_manager
+# pip install verbose
+# pip install pytest_sugar
 
 class globalVars:
     base_url = "https://www.saucedemo.com/"
